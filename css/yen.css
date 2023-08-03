@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #fff;
+  background-color: blueviolet;
+  padding: 0 2em 0;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 5%;
+  border-radius: 3em;
+  margin-bottom: 4em;
+}
+
+.head-title {
+  text-transform: capitalize;
+  text-align: center;
+  margin-block: 2em;
+}
+
+.nav-gist {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.gist {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  list-style: none;
+  padding: 0.87em;
+}
+.dash {
+  padding-bottom: 1.2em;
+}
+
+.dash:link,
+.dash:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.dash:hover,
+.dash:active {
+  color: #fff;
+  text-decoration: underline;
+}
+.btn-nav {
+  display: none;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.svg {
+  height: 1.8em;
+  width: 1.8em;
+  stroke: rgba(255, 255, 255, 1);
+}
+
+.svg-2 {
+  display: none;
+}
+
+.form {
+  width: 80%;
+  background: linear-gradient(rgb(54, 117, 104), #2a352259, rgb(140, 140, 66)),
+    #1c021bad;
+  border-radius: 8% 8.4% 0 0;
+  margin: auto;
+  margin-bottom: 4em;
+}
+
+.container {
+  border: none;
+}
+
+.list {
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 1.6;
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.board {
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #eedd667d;
+  padding: 2em;
+  border-radius: 1em;
+  margin-bottom: 3em;
+}
+
+textarea {
+  width: 100%;
+}
+
+.text {
+   display: flex;
+  justify-content: center;
+  padding: 1.2em;
+}
+
+.btn {
+  font-size: 1.2em;
+  background-color: coral;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  width: 20%;
+  border: none;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: violet;
+  transform: translate(50deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 1.2em;
+  padding-block: 4em;
+}
+
+/* log-in  section*/
+.log-head {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 4em;
+}
+
+.bnt {
+  width: 50%;
+  padding: 1.2em;
+  border-radius: 2em;
+  border: none;
+}
+
+.bnt-1 {
+  margin-block: 2em;
+}
+
+.summit-head {
+  margin-bottom: 4em;
+
+}
+
+.summit {
+  font-size: 1.2em;
+  width: 11%;
+  padding: 0.54em 1em;
+ color: #333;
+  border-radius: 1em;
+  border: none;
+  text-align: center;
+}
