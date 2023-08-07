@@ -16,7 +16,7 @@
             log.textContent = 'log out'
             log.addEventListener('click', () => {
                 window.localStorage.removeItem('user')
-                window.location.href = './home.html'
+                window.location.href = '../index.html'
             })
         }
     } else {
