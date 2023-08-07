@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/yen.css">
+  <link rel="stylesheet" href="/css/general.css">
+  <title>log </title>
+</head>
+
+<body>
+  <main class="main-section">
+
+    <header>
+      <img class="logo" src="/img/IMG-20230801-WA0002.jpg" alt=" yentown gist" />
+      <nav class="nav-gist">
+        <ul class="gist">
+          <li class="nest">
+            <a id="home" class="dash" href="home.html">Home</a>
+          </li>
+          <li class="nest">
+            <a style="display: none;" id="messages" class="dash" href="messages.html">view messages</a>
+          </li>
+          <li class="nest">
+            <a id="log" class="dash" href="log_in.html" style="display: none;">log in</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 class="head-title">gist yentown's profile</h1>
+
+    <section class="log">
+      <form id="loginForm" class="form-head">
+        <div class="log-head">
+          <div class="bnt-1">
+            <label for="text">user name
+            </label>
+            <input class="bnt" type="text" name="identity" id="text">
+          </div>
+          <div class="bnt-1">
+            <label for="password">password</label>
+            <input class="bnt" type="password" name="password" id="password" required>
+          </div>
+          <div class="summit-head">
+            <input class="summit" type="submit" value="sign-in">
+          </div>
+        </div>
+      </form>
+    </Section>
+    </section>
+  </main>
+  <footer>
+    <p class="footer-text">
+      all right reserved &copy; yentown gist &RightArrow; 2023
+    </p>
+  </footer>
+  <script>
+    let BASE_URL = 'http://localhost:3000/api/v1';
+    let loginForm = document.querySelector('#loginForm')
+    loginForm.addEventListener('submit', loginHandler);
+
+    function loginHandler(event) {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+
+      const formDataObject = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value;
+      });
+
+      const jsonData = JSON.stringify(formDataObject);
+
+      fetch(`${BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      })
+        .then(response => response.json())
+        .then(({ data }) => {
+          window.localStorage.setItem('user', JSON.stringify(data));
+          window.location.href = './messages.html'
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+  <script src="../scripts/index.js"></script>
+</body>
+
+</html>

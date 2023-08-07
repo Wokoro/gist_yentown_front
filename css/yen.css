@@ -16,7 +16,9 @@ body {
 .logo {
   display: block;
   margin: auto;
-  width: 5%;
+  width: 10%;
+  max-width: 200px;
+  min-width: 150px;
   border-radius: 3em;
   margin-bottom: 4em;
 }
@@ -35,26 +37,27 @@ body {
 }
 
 .gist {
-  display: flex;
-  justify-content: space-between;
-  gap: 2em;
-  list-style: none;
-  padding: 0.87em;
+display: flex;
+    gap: 2em;
+    list-style: none;
+    font-size: 18px;
+    padding: 0.87em;
+    width: 15em;
+    justify-content: flex-start;
 }
 .dash {
   padding-bottom: 1.2em;
+  color: white;
 }
 
 .dash:link,
 .dash:visited {
-  color: black;
   text-decoration: none;
 }
 
 .dash:hover,
 .dash:active {
-  color: #fff;
-  text-decoration: underline;
+  color: #bdb6b6;
 }
 .btn-nav {
   display: none;
@@ -63,23 +66,14 @@ body {
   background-color: #fff;
 }
 
-.svg {
-  height: 1.8em;
-  width: 1.8em;
-  stroke: rgba(255, 255, 255, 1);
-}
-
-.svg-2 {
-  display: none;
-}
-
 .form {
   width: 80%;
   background: linear-gradient(rgb(54, 117, 104), #2a352259, rgb(140, 140, 66)),
     #1c021bad;
-  border-radius: 8% 8.4% 0 0;
+  border-radius: 10px;
   margin: auto;
   margin-bottom: 4em;
+  max-width: 35em;
 }
 
 .container {
@@ -92,6 +86,7 @@ body {
   line-height: 1.6;
   list-style-type: none;
   margin-bottom: 2em;
+  font-size: 0.85em;
 }
 
 .board {
@@ -105,6 +100,8 @@ body {
 
 textarea {
   width: 100%;
+    height: 7em;
+    padding: 0.65em;
 }
 
 .text {
@@ -122,6 +119,7 @@ textarea {
   width: 20%;
   border: none;
   color: #fff;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -133,22 +131,24 @@ textarea {
 
 .footer-text {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 0.8em;
   padding-block: 4em;
 }
 
 /* log-in  section*/
 .log-head {
-  display: block;
-  text-align: center;
-  margin: auto;
-  margin-bottom: 4em;
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 4em;
+    width: 70%;
+    max-width: 40em;
 }
 
 .bnt {
   width: 50%;
   padding: 1.2em;
-  border-radius: 2em;
+  border-radius: 0.5em;
   border: none;
 }
 
@@ -162,11 +162,42 @@ textarea {
 }
 
 .summit {
-  font-size: 1.2em;
-  width: 11%;
-  padding: 0.54em 1em;
- color: #333;
-  border-radius: 1em;
-  border: none;
-  text-align: center;
+font-size: 1.2em;
+    padding: 0.4em 1.4em;
+    color: #333;
+    border-radius: 0.5em;
+    border: none;
+    text-align: center;
+}
+
+#message_status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#message_holder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+th{
+  text-align: left;
+}
+
+#message_col{
+    width: 20em;
+}
+
+tbody{
+  font-size: 0.9em;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.nest{
+  color: white;
 }

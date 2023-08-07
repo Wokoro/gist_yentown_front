@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/yen.css">
+  <link rel="stylesheet" href="/css/general.css">
+  <title>view message </title>
+</head>
+
+<body>
+  <main class="main-section">
+    <header>
+      <img class="logo" src="/img/IMG-20230801-WA0002.jpg" alt=" yentown gist" />
+      <nav class="nav-gist">
+        <ul class="gist">
+          <li class="nest">
+            <a id="home" class="dash" href="home.html">Home</a>
+          </li>
+          <li class="nest">
+            <a id="share" class="dash" href="#" style="display: none;"> share my profile</a>
+          </li>
+          <li class="nest">
+            <a id="log" class="dash" href="/html/log_in.html" style="display: none;">log in</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+    <section id="message_holder">
+      <div id="message_status">
+        NO MESSAGE
+      </div>
+      <table id="message_table" style="display: none;">
+        <thead>
+          <th id="message_col">Message</th>
+          <th>Date</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+
+    let BASE_URL = 'http://localhost:3000/api/v1';
+
+    let authUser = window.localStorage.getItem('user');
+
+    if (authUser) {
+      authUser = JSON.parse(authUser);
+      console.log('authuser: ', authUser.access_token)
+
+      fetch(`${BASE_URL}/messages`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authUser.access_token}`
+        }
+      })
+        .then(response => response.json())
+        .then(({ data }) => {
+          console.log(data);
+          const messageStat = document.querySelector('#message_status');
+          const table = document.querySelector('#message_table');
+          const tbody = document.querySelector('#message_table>tbody');
+
+          const messageCell = document.createElement('td');
+          const dateCell = document.createElement('td');
+
+          const messages = data.result;
+          for (let data of messages) {
+            const row = document.createElement('tr');
+            const mCell = messageCell.cloneNode();
+            const dCell = dateCell.cloneNode();
+
+            mCell.textContent = data.message;
+            dCell.textContent = new Date(data.created_at).toLocaleString();
+
+            row.appendChild(mCell);
+            row.appendChild(dCell);
+
+            tbody.appendChild(row);
+          }
+
+          if (messages.length) {
+            messageStat.style.display = 'none';
+            table.style.display = 'block';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+
+</body>
+
+</html>
