@@ -1,8 +1,6 @@
 (() => {
     const authenticated = window.localStorage.getItem('user');
 
-    console.log('AUTHENTICATED: ', authenticated)
-
     const home = document.querySelector('#home')
     const messages = document.querySelector('#messages')
     const share = document.querySelector('#share')
