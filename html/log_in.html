@@ -29,6 +29,12 @@
       </nav>
     </header>
 
+    <div id="loader_container" class="loader-backdrop" style="display: none;">
+      <div class="loader-container">
+        <div class="loader"></div>
+      </div>
+    </div>
+
     <h1 class="head-title">gist yentown's profile</h1>
 
     <section class="log">
@@ -64,6 +70,8 @@
     function loginHandler(event) {
       event.preventDefault();
 
+      document.querySelector('#loader_container').style.display = 'block'
+
       const formData = new FormData(event.target);
 
       const formDataObject = {};
@@ -82,6 +90,8 @@
       })
         .then(response => response.json())
         .then(({ data }) => {
+          document.querySelector('#loader_container').style.display = 'none'
+
           window.localStorage.setItem('user', JSON.stringify(data));
           window.location.href = './messages.html'
         })

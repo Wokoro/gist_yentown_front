@@ -23,6 +23,12 @@
       </ul>
     </nav>
   </header>
+  
+  <div id="loader_container" class="loader-backdrop" style="display: none;">
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+  </div>
 
   <main class="main-section">
     <section class="form">
@@ -58,6 +64,7 @@
     form.addEventListener('submit', createMessageHandler);
 
     function createMessageHandler(event) {
+      document.querySelector('#loader_container').style.display = 'block'
       event.preventDefault();
       const formData = new FormData(event.target);
 
@@ -77,6 +84,8 @@
       })
         .then(response => response.json())
         .then(data => {
+          document.querySelector('#loader_container').style.display = 'none'
+
           alert('Thanks for your feedback');
           document.querySelector("#message_field").value = '';
         })
