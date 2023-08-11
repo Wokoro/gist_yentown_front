@@ -3,7 +3,6 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.6em;
     font-family: serif;
-    color: #e6e4e4;
     font-size: 1.2em;
   }
 
@@ -127,6 +126,7 @@
 #message_table{
   width: 100%;
   overflow: scroll;
+  max-width: 40em;
 }
 
 @keyframes spin {

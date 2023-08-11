@@ -37,9 +37,6 @@
           <th id="message_col"
             style="border-bottom: 1px solid;min-width: 12px;width: 80%;text-wrap: wrap;padding-right: 3px;padding-bottom: 15px;">
             Message</th>
-          <th
-            style="border-bottom: 1px solid; min-width: 5px; width: 20%; text-wrap: wrap; padding-left: 3px;padding-bottom: 15px;">
-            Date</th>
         </thead>
         <tbody></tbody>
       </table>
@@ -71,30 +68,23 @@
           const tbody = document.querySelector('#message_table>tbody');
 
           const messageCell = document.createElement('td');
-          const dateCell = document.createElement('td');
 
           const messages = data.result;
           for (let data of messages) {
             const row = document.createElement('tr');
             const mCell = messageCell.cloneNode();
-            const dCell = dateCell.cloneNode();
 
-            mCell.textContent = data.message;
+            mCell.innerHTML = `
+              <p>${data.message}</p>
+              <p style="margin:6px 0;font-size:14px">${new Date(data.created_at).toDateString()}, <span>${new Date(data.created_at).toLocaleTimeString()}</span ></p >
+            `
             mCell.style.borderBottom = '1px solid'
             mCell.style.minWidth = '12px'
             mCell.style.width = '80%'
             mCell.style.textWrap = 'wrap'
             mCell.style.paddingRight = '3px'
 
-            dCell.textContent = new Date(data.created_at).toLocaleString();
-            dCell.style.borderBottom = '1px solid'
-            dCell.style.minWidth = '5px'
-            dCell.style.width = '20%'
-            dCell.style.textWrap = 'wrap'
-            dCell.style.paddingLeft = '3px'
-
             row.appendChild(mCell);
-            row.appendChild(dCell);
 
             tbody.appendChild(row);
           }
