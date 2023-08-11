@@ -77,10 +77,15 @@
 
             mCell.textContent = data.message;
             mCell.style.borderBottom = '1px solid'
-            mCell.style.width = '12px'
+            mCell.style.minWidth = '12px'
+            mCell.style.width = '80%'
             mCell.style.textWrap = 'wrap'
+
             dCell.textContent = new Date(data.created_at).toLocaleString();
             dCell.style.borderBottom = '1px solid'
+            dCell.style.minWidth = '5px'
+            dCell.style.width = '20%'
+            dCell.style.textWrap = 'wrap'
 
             row.appendChild(mCell);
             row.appendChild(dCell);
