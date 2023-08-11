@@ -34,8 +34,12 @@
       </div>
       <table id="message_table" style="display: none;">
         <thead>
-          <th id="message_col">Message</th>
-          <th>Date</th>
+          <th id="message_col"
+            style="border-bottom: 1px solid;min-width: 12px;width: 80%;text-wrap: wrap;padding-right: 3px;padding-bottom: 15px;">
+            Message</th>
+          <th
+            style="border-bottom: 1px solid; min-width: 5px; width: 20%; text-wrap: wrap; padding-left: 3px;padding-bottom: 15px;">
+            Date</th>
         </thead>
         <tbody></tbody>
       </table>
@@ -80,12 +84,14 @@
             mCell.style.minWidth = '12px'
             mCell.style.width = '80%'
             mCell.style.textWrap = 'wrap'
+            mCell.style.paddingRight = '3px'
 
             dCell.textContent = new Date(data.created_at).toLocaleString();
             dCell.style.borderBottom = '1px solid'
             dCell.style.minWidth = '5px'
             dCell.style.width = '20%'
             dCell.style.textWrap = 'wrap'
+            dCell.style.paddingLeft = '3px'
 
             row.appendChild(mCell);
             row.appendChild(dCell);
