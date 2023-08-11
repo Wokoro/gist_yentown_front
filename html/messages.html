@@ -77,6 +77,8 @@
 
             mCell.textContent = data.message;
             mCell.style.borderBottom = '1px solid'
+            mCell.style.width = '12px'
+            mCell.style.textWrap = 'wrap'
             dCell.textContent = new Date(data.created_at).toLocaleString();
             dCell.style.borderBottom = '1px solid'
 
