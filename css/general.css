@@ -124,6 +124,11 @@
   z-index: 9999; /* Make sure the backdrop is above other content */
 }
 
+#message_table{
+  width: 100%;
+  overflow: scroll;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

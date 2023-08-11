@@ -76,7 +76,9 @@
             const dCell = dateCell.cloneNode();
 
             mCell.textContent = data.message;
+            mCell.style.borderBottom = '1px solid'
             dCell.textContent = new Date(data.created_at).toLocaleString();
+            dCell.style.borderBottom = '1px solid'
 
             row.appendChild(mCell);
             row.appendChild(dCell);
